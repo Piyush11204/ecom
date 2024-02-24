@@ -1,0 +1,26 @@
+pip install virtualenv
+virtualenv env
+
+py -3 -m venv env
+pip install Flask
+
+
+ Password='password'+db.Column(db.String(20))
+    Age='age'+db.Column(db.Integer)
+    Gender='gender'+db.Column(db.String(6))
+    Email='email'+db.Column(db.String(50))
+    PhoneNum='phone'+db.Column(db.String(13))
+    Address='address'+db.Column(db.String(100))
+
+
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///webdev.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}')"

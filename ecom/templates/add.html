@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block body -%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/add.css')}}"/>
+<h1>vender</h1>
+
+<hr>
+<div class="content">
+    <form method="POST">
+        <b><label for="Name">Name:-</label></b>
+        <p>
+        <input type="text" name="uname" placeholder="Your Name">
+        </p>
+        <b><label for="number">Contect N0:-</label></b>
+        <p>
+        <input type="text" name="number" placeholder="+91 xxxxxxxxx">
+        </p>
+        <p>
+            <b><label for="content">Bio:-</label></b>
+        </p>
+        <p>
+        <input type="text" name="content" placeholder="write someting about you">
+        </p>
+        
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+            <input 
+            id="degree-0" 
+            name="degree" 
+            required 
+            type="radio" value="male">
+            <label for="degree-0">male</label>
+        </p>
+        <p>
+            <input 
+            id="degree-1" 
+            name="degree" 
+            required 
+            type="radio" value="female">
+            <label for="degree-1">Female</label>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    {% for vender in vender %}
+    <div class="vender">
+  
+    <p> {{ vender['uname'] }} <i>
+        ({{ vender['degree'] }})</i> <br>
+         {{ vender['number'] }}<br>
+        {{ vender['content'] }}
+    </p>
+    
+    <form method="POST" 
+          action="{{ url_for('delete', id=vender['_id']) }}">
+    <input 
+          type="submit"
+          value="delete vender"
+          onclick="return 
+          confirm('Are you sure you want to delete this entry?')"/>
+    </form>
+    </div>
+    {% endfor %}
+</div>
+
+ 
+  
+
+  
+{% endblock  %}
