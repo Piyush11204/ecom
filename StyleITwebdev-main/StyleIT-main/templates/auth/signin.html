@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+  crossorigin="anonymous"
+></script>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/images/black-friday-elements-assortment.jpg');
+            background-size: cover;
+
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 450px;
+            min-width: none;
+            max-height: 440px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .side-container {
+            flex: 1;
+            background-color: #4caf50;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url("https://i.fbcd.co/products/original/d0979c4998117c54b6c5fe85a26162f97562d1130a237ac11566d33b10563add.jpg");
+
+        }
+
+        .signup {
+
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            font-size: 30px;
+            color: rgb(54, 53, 50);
+            font-weight: normal;
+            margin-top: -4px;
+
+        }
+
+
+        form {
+            width: 100%;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        .increase_btn{
+            font-size: 15px;
+        }
+
+        .side-container img {
+            max-width: 100%;
+            height: auto;
+        }       
+        .loginpara{
+            color: #868686;
+        }
+    </style>
+</head>
+
+<body>
+    {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alertbox" id="alrt" role="alert">
+    <strong >Message :</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor  %}
+    <div class="container">
+        <div class="form-container">
+            <form id="loginForm " action="/signin" method="post">
+            {% csrf_token %}
+                <div class="d-flex flex-row justify-content-center ">
+                    <a href="home"><img src="https://res.cloudinary.com/dvv99sjjl/image/upload/v1708868625/new/icon_cs9esj.png"/></a>
+                    <h2 class="mt-2">StyleIT</h2>
+                </div>
+                <hr>    
+                <h1 class="signup">Login</h1>
+                <!-- <p class="loginpara">Excited to have you back...<br>Login quickly to avail discounts</p> -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                
+
+                
+
+                <button type="submit" class="increase_btn" >Login </button>
+                <a href="sign_up">click Me to signup</a>
+            </form>
+        </div>
+
+
+
+
+        <script>
+            // function validateForm() {
+            //     // Add your validation logic here
+            //     // For example, you can check if passwords match, or if the email format is valid
+            //     user=document.getElementById("username")
+            //     pass=document.getElementById("password")
+                
+            //     console.log(user.value)
+            //     console.log(pass.value)
+            //     if(user.value===""){
+            //         alert("Enter the username");
+            //     }
+            //     else if(pass.value===""){
+            //         alert("Enter the password");
+            //     }
+            //     else{
+            //         document.getElementById("signupForm ").submit();
+            //         alert("loggedin")
+            //     }
+                
+            // }
+        </script>
+</body>
+
+</html>

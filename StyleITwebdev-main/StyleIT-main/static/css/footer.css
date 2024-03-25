@@ -1,0 +1,13 @@
+.bg-footer{
+    background-color: black;
+    height: 400px;
+    width: 100%;
+    padding: 25px;
+
+}
+.buttonbox{
+    border: 2px solid white;
+}
+.but-footer{
+    border: 0px;
+}

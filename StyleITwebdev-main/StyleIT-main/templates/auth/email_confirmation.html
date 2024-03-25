@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+Welcome to StyleIT Login
+
+Hello {{ name }}
+
+Please Confirm your email by clicking on the following link.
+
+Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

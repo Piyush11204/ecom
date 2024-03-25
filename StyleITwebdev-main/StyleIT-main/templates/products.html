@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .primg {
+        height: 200px;
+        width: 150px;
+        object-fit: cover;
+      }
+
+      .prodctr {
+        max-width: 100vw;
+        padding-left: 70px;
+        /* border: 2px solid; */
+        height: 1000px;
+      }
+
+      .podctrbox {
+        color: #fff;
+        margin: 15px;
+        border: 2px solid #b7b7b7;
+        padding: 15px;
+        width: 250px;
+        min-width: 250px;
+        max-width: 250px;
+      }
+      .podctrbox:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: 0.5s;
+      }
+
+      .product-head {
+        font-size: 40px;
+        color: #000000;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .card-title {
+        margin-top: 5px;
+        color: black;
+        font-size: 20px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .card-text {
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="prodctr">
+      <div class="row pdc">
+        {% for shopIT in shopIT %}
+        <div
+          class="col-5 col-md-3 col-lg-2 col-xl-1 rounded-lg podctrbox text-center"
+        >
+          <img class="primg rounded-lg" src="{{ shopIT.img }}" />
+          <h3 class="card-title">{{ shopIT.name }}</h3>
+          <p class="card-text">Rs: {{ shopIT.price }}</p>
+          <p class="card-text">ID-{{ shopIT.id }}</p>
+          <!-- <a
+            
+            value="{{ shopIT.id }}"
+            class="btn btn-primary"
+            id="add-cart"
+            >Add to Cart</a
+          > -->
+          <button type="button" value="{{shopIT.id}}" class="btn btn-primary" id="add-cart">Add to cart</button>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+    $(document).on('click', "#add-cart", function (e) {
+    e.preventDefault();
+    // var itemId = $(this).val();
+
+    $.ajax({
+      type: 'POST',
+      url: "{% url 'cart_add' %}",
+      data: {
+        ShopIT_id:$('#add-cart').val(),
+        csrfmiddlewaretoken: '{{ csrf_token }}',
+        action:('post'),
+      },
+      success: function (json) {
+        console.log(json);
+        // Optionally, you can update the cart count or display a success message here
+      },
+      error: function (xhr, thrownError) {
+        console.log(xhr.responseText);
+        alert('An error occurred while adding the item to the cart.');
+      }
+    });
+  });
+</script>
+</html>

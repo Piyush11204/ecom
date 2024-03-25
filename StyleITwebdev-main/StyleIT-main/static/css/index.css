@@ -1,0 +1,70 @@
+.bck {
+	background-color: #e4e3e3;
+	/* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0eaesLJtMU2yq0AlyqCa0sdlTAgQFRfWXg&usqp=CAU');
+	background-size: contain; */
+
+}
+
+
+.c-item {
+	max-height: 600px;
+}
+
+.c-imga {
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(0.9);
+}
+
+.primg {
+	height: 200px;
+	width: 150px;
+	
+	object-fit: cover;
+}
+
+.prodctr {
+	max-width: 100vw;
+	padding-left: 70px;
+}
+
+.podctrbox {
+	
+	color: #fff;
+	margin: 15px;
+	border: 2px solid #b7b7b7;
+	padding:15px;
+	width: 250px;
+	min-width: 250px;
+	max-width: 250px;
+}
+.podctrbox:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+}
+
+.product-head {
+	font-size: 40px;	
+	color: #000000;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.card-title{
+	margin-top: 5px;
+	color: black;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+}
+.card-text{
+	color: black;
+}
+
+.btbk{
+	color: white;
+	background-color: rgb(0, 0, 0);
+	position: sticky;
+}
+.back-up{
+	position: sticky;
+
+}
